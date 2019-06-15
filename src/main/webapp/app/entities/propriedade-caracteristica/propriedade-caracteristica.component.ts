@@ -5,19 +5,19 @@ import { Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiEventManager, JhiParseLinks, JhiAlertService } from 'ng-jhipster';
 
-import { IPropriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { IPropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
 import { AccountService } from 'app/core';
 
 import { ITEMS_PER_PAGE } from 'app/shared';
-import { Propriedade_caracteristicaService } from './propriedade-caracteristica.service';
+import { PropriedadeCaracteristicaService } from './propriedade-caracteristica.service';
 
 @Component({
   selector: 'jhi-propriedade-caracteristica',
   templateUrl: './propriedade-caracteristica.component.html'
 })
-export class Propriedade_caracteristicaComponent implements OnInit, OnDestroy {
+export class PropriedadeCaracteristicaComponent implements OnInit, OnDestroy {
   currentAccount: any;
-  propriedade_caracteristicas: IPropriedade_caracteristica[];
+  propriedade_caracteristicas: IPropriedadeCaracteristica[];
   error: any;
   success: any;
   eventSubscriber: Subscription;
@@ -31,7 +31,7 @@ export class Propriedade_caracteristicaComponent implements OnInit, OnDestroy {
   reverse: any;
 
   constructor(
-    protected propriedade_caracteristicaService: Propriedade_caracteristicaService,
+    protected propriedadeCaracteristicaService: PropriedadeCaracteristicaService,
     protected parseLinks: JhiParseLinks,
     protected jhiAlertService: JhiAlertService,
     protected accountService: AccountService,
@@ -49,14 +49,14 @@ export class Propriedade_caracteristicaComponent implements OnInit, OnDestroy {
   }
 
   loadAll() {
-    this.propriedade_caracteristicaService
+    this.propriedadeCaracteristicaService
       .query({
         page: this.page - 1,
         size: this.itemsPerPage,
         sort: this.sort()
       })
       .subscribe(
-        (res: HttpResponse<IPropriedade_caracteristica[]>) => this.paginatePropriedade_caracteristicas(res.body, res.headers),
+        (res: HttpResponse<IPropriedadeCaracteristica[]>) => this.paginatePropriedadeCaracteristicas(res.body, res.headers),
         (res: HttpErrorResponse) => this.onError(res.message)
       );
   }
@@ -96,18 +96,18 @@ export class Propriedade_caracteristicaComponent implements OnInit, OnDestroy {
     this.accountService.identity().then(account => {
       this.currentAccount = account;
     });
-    this.registerChangeInPropriedade_caracteristicas();
+    this.registerChangeInPropriedadeCaracteristicas();
   }
 
   ngOnDestroy() {
     this.eventManager.destroy(this.eventSubscriber);
   }
 
-  trackId(index: number, item: IPropriedade_caracteristica) {
+  trackId(index: number, item: IPropriedadeCaracteristica) {
     return item.id;
   }
 
-  registerChangeInPropriedade_caracteristicas() {
+  registerChangeInPropriedadeCaracteristicas() {
     this.eventSubscriber = this.eventManager.subscribe('propriedade_caracteristicaListModification', response => this.loadAll());
   }
 
@@ -119,7 +119,7 @@ export class Propriedade_caracteristicaComponent implements OnInit, OnDestroy {
     return result;
   }
 
-  protected paginatePropriedade_caracteristicas(data: IPropriedade_caracteristica[], headers: HttpHeaders) {
+  protected paginatePropriedadeCaracteristicas(data: IPropriedadeCaracteristica[], headers: HttpHeaders) {
     this.links = this.parseLinks.parse(headers.get('link'));
     this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
     this.propriedade_caracteristicas = data;

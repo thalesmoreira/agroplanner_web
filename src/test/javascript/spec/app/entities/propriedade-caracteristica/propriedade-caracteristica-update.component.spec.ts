@@ -5,34 +5,34 @@ import { FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 
 import { AgroplannerTestModule } from '../../../test.module';
-import { Propriedade_caracteristicaUpdateComponent } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica-update.component';
-import { Propriedade_caracteristicaService } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.service';
-import { Propriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { PropriedadeCaracteristicaUpdateComponent } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica-update.component';
+import { PropriedadeCaracteristicaService } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.service';
+import { PropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
 
 describe('Component Tests', () => {
-  describe('Propriedade_caracteristica Management Update Component', () => {
-    let comp: Propriedade_caracteristicaUpdateComponent;
-    let fixture: ComponentFixture<Propriedade_caracteristicaUpdateComponent>;
-    let service: Propriedade_caracteristicaService;
+  describe('PropriedadeCaracteristica Management Update Component', () => {
+    let comp: PropriedadeCaracteristicaUpdateComponent;
+    let fixture: ComponentFixture<PropriedadeCaracteristicaUpdateComponent>;
+    let service: PropriedadeCaracteristicaService;
 
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [AgroplannerTestModule],
-        declarations: [Propriedade_caracteristicaUpdateComponent],
+        declarations: [PropriedadeCaracteristicaUpdateComponent],
         providers: [FormBuilder]
       })
-        .overrideTemplate(Propriedade_caracteristicaUpdateComponent, '')
+        .overrideTemplate(PropriedadeCaracteristicaUpdateComponent, '')
         .compileComponents();
 
-      fixture = TestBed.createComponent(Propriedade_caracteristicaUpdateComponent);
+      fixture = TestBed.createComponent(PropriedadeCaracteristicaUpdateComponent);
       comp = fixture.componentInstance;
-      service = fixture.debugElement.injector.get(Propriedade_caracteristicaService);
+      service = fixture.debugElement.injector.get(PropriedadeCaracteristicaService);
     });
 
     describe('save', () => {
       it('Should call update service on save for existing entity', fakeAsync(() => {
         // GIVEN
-        const entity = new Propriedade_caracteristica(123);
+        const entity = new PropriedadeCaracteristica(123);
         spyOn(service, 'update').and.returnValue(of(new HttpResponse({ body: entity })));
         comp.updateForm(entity);
         // WHEN
@@ -46,7 +46,7 @@ describe('Component Tests', () => {
 
       it('Should call create service on save for new entity', fakeAsync(() => {
         // GIVEN
-        const entity = new Propriedade_caracteristica();
+        const entity = new PropriedadeCaracteristica();
         spyOn(service, 'create').and.returnValue(of(new HttpResponse({ body: entity })));
         comp.updateForm(entity);
         // WHEN

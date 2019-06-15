@@ -5,11 +5,11 @@ import { JhiLanguageHelper } from 'app/core';
 
 import { AgroplannerSharedModule } from 'app/shared';
 import {
-  Propriedade_caracteristicaComponent,
-  Propriedade_caracteristicaDetailComponent,
-  Propriedade_caracteristicaUpdateComponent,
-  Propriedade_caracteristicaDeletePopupComponent,
-  Propriedade_caracteristicaDeleteDialogComponent,
+  PropriedadeCaracteristicaComponent,
+  PropriedadeCaracteristicaDetailComponent,
+  PropriedadeCaracteristicaUpdateComponent,
+  PropriedadeCaracteristicaDeletePopupComponent,
+  PropriedadeCaracteristicaDeleteDialogComponent,
   propriedade_caracteristicaRoute,
   propriedade_caracteristicaPopupRoute
 } from './';
@@ -19,22 +19,22 @@ const ENTITY_STATES = [...propriedade_caracteristicaRoute, ...propriedade_caract
 @NgModule({
   imports: [AgroplannerSharedModule, RouterModule.forChild(ENTITY_STATES)],
   declarations: [
-    Propriedade_caracteristicaComponent,
-    Propriedade_caracteristicaDetailComponent,
-    Propriedade_caracteristicaUpdateComponent,
-    Propriedade_caracteristicaDeleteDialogComponent,
-    Propriedade_caracteristicaDeletePopupComponent
+    PropriedadeCaracteristicaComponent,
+    PropriedadeCaracteristicaDetailComponent,
+    PropriedadeCaracteristicaUpdateComponent,
+    PropriedadeCaracteristicaDeleteDialogComponent,
+    PropriedadeCaracteristicaDeletePopupComponent
   ],
   entryComponents: [
-    Propriedade_caracteristicaComponent,
-    Propriedade_caracteristicaUpdateComponent,
-    Propriedade_caracteristicaDeleteDialogComponent,
-    Propriedade_caracteristicaDeletePopupComponent
+    PropriedadeCaracteristicaComponent,
+    PropriedadeCaracteristicaUpdateComponent,
+    PropriedadeCaracteristicaDeleteDialogComponent,
+    PropriedadeCaracteristicaDeletePopupComponent
   ],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AgroplannerPropriedade_caracteristicaModule {
+export class AgroplannerPropriedadeCaracteristicaModule {
   constructor(private languageService: JhiLanguageService, private languageHelper: JhiLanguageHelper) {
     this.languageHelper.language.subscribe((languageKey: string) => {
       if (languageKey !== undefined) {

@@ -4,24 +4,24 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
 import { AgroplannerTestModule } from '../../../test.module';
-import { Propriedade_caracteristicaDetailComponent } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica-detail.component';
-import { Propriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { PropriedadeCaracteristicaDetailComponent } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica-detail.component';
+import { PropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
 
 describe('Component Tests', () => {
-  describe('Propriedade_caracteristica Management Detail Component', () => {
-    let comp: Propriedade_caracteristicaDetailComponent;
-    let fixture: ComponentFixture<Propriedade_caracteristicaDetailComponent>;
-    const route = ({ data: of({ propriedade_caracteristica: new Propriedade_caracteristica(123) }) } as any) as ActivatedRoute;
+  describe('PropriedadeCaracteristica Management Detail Component', () => {
+    let comp: PropriedadeCaracteristicaDetailComponent;
+    let fixture: ComponentFixture<PropriedadeCaracteristicaDetailComponent>;
+    const route = ({ data: of({ propriedade_caracteristica: new PropriedadeCaracteristica(123) }) } as any) as ActivatedRoute;
 
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [AgroplannerTestModule],
-        declarations: [Propriedade_caracteristicaDetailComponent],
+        declarations: [PropriedadeCaracteristicaDetailComponent],
         providers: [{ provide: ActivatedRoute, useValue: route }]
       })
-        .overrideTemplate(Propriedade_caracteristicaDetailComponent, '')
+        .overrideTemplate(PropriedadeCaracteristicaDetailComponent, '')
         .compileComponents();
-      fixture = TestBed.createComponent(Propriedade_caracteristicaDetailComponent);
+      fixture = TestBed.createComponent(PropriedadeCaracteristicaDetailComponent);
       comp = fixture.componentInstance;
     });
 

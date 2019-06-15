@@ -5,27 +5,27 @@ import { Observable, of } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 
 import { AgroplannerTestModule } from '../../../test.module';
-import { Propriedade_caracteristicaDeleteDialogComponent } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica-delete-dialog.component';
-import { Propriedade_caracteristicaService } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.service';
+import { PropriedadeCaracteristicaDeleteDialogComponent } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica-delete-dialog.component';
+import { PropriedadeCaracteristicaService } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.service';
 
 describe('Component Tests', () => {
-  describe('Propriedade_caracteristica Management Delete Component', () => {
-    let comp: Propriedade_caracteristicaDeleteDialogComponent;
-    let fixture: ComponentFixture<Propriedade_caracteristicaDeleteDialogComponent>;
-    let service: Propriedade_caracteristicaService;
+  describe('PropriedadeCaracteristica Management Delete Component', () => {
+    let comp: PropriedadeCaracteristicaDeleteDialogComponent;
+    let fixture: ComponentFixture<PropriedadeCaracteristicaDeleteDialogComponent>;
+    let service: PropriedadeCaracteristicaService;
     let mockEventManager: any;
     let mockActiveModal: any;
 
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [AgroplannerTestModule],
-        declarations: [Propriedade_caracteristicaDeleteDialogComponent]
+        declarations: [PropriedadeCaracteristicaDeleteDialogComponent]
       })
-        .overrideTemplate(Propriedade_caracteristicaDeleteDialogComponent, '')
+        .overrideTemplate(PropriedadeCaracteristicaDeleteDialogComponent, '')
         .compileComponents();
-      fixture = TestBed.createComponent(Propriedade_caracteristicaDeleteDialogComponent);
+      fixture = TestBed.createComponent(PropriedadeCaracteristicaDeleteDialogComponent);
       comp = fixture.componentInstance;
-      service = fixture.debugElement.injector.get(Propriedade_caracteristicaService);
+      service = fixture.debugElement.injector.get(PropriedadeCaracteristicaService);
       mockEventManager = fixture.debugElement.injector.get(JhiEventManager);
       mockActiveModal = fixture.debugElement.injector.get(NgbActiveModal);
     });

@@ -4,15 +4,15 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { of } from 'rxjs';
 import { take, map } from 'rxjs/operators';
-import { Propriedade_caracteristicaService } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.service';
-import { IPropriedade_caracteristica, Propriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { PropriedadeCaracteristicaService } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.service';
+import { IPropriedadeCaracteristica, PropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
 
 describe('Service Tests', () => {
-  describe('Propriedade_caracteristica Service', () => {
+  describe('PropriedadeCaracteristica Service', () => {
     let injector: TestBed;
-    let service: Propriedade_caracteristicaService;
+    let service: PropriedadeCaracteristicaService;
     let httpMock: HttpTestingController;
-    let elemDefault: IPropriedade_caracteristica;
+    let elemDefault: IPropriedadeCaracteristica;
     let expectedResult;
     beforeEach(() => {
       TestBed.configureTestingModule({
@@ -20,10 +20,10 @@ describe('Service Tests', () => {
       });
       expectedResult = {};
       injector = getTestBed();
-      service = injector.get(Propriedade_caracteristicaService);
+      service = injector.get(PropriedadeCaracteristicaService);
       httpMock = injector.get(HttpTestingController);
 
-      elemDefault = new Propriedade_caracteristica(0, 'AAAAAAA');
+      elemDefault = new PropriedadeCaracteristica(0, 'AAAAAAA');
     });
 
     describe('Service methods', () => {
@@ -39,7 +39,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: elemDefault });
       });
 
-      it('should create a Propriedade_caracteristica', async () => {
+      it('should create a PropriedadeCaracteristica', async () => {
         const returnedFromService = Object.assign(
           {
             id: 0
@@ -48,7 +48,7 @@ describe('Service Tests', () => {
         );
         const expected = Object.assign({}, returnedFromService);
         service
-          .create(new Propriedade_caracteristica(null))
+          .create(new PropriedadeCaracteristica(null))
           .pipe(take(1))
           .subscribe(resp => (expectedResult = resp));
         const req = httpMock.expectOne({ method: 'POST' });
@@ -56,7 +56,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should update a Propriedade_caracteristica', async () => {
+      it('should update a PropriedadeCaracteristica', async () => {
         const returnedFromService = Object.assign(
           {
             value: 'BBBBBB'
@@ -74,7 +74,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toMatchObject({ body: expected });
       });
 
-      it('should return a list of Propriedade_caracteristica', async () => {
+      it('should return a list of PropriedadeCaracteristica', async () => {
         const returnedFromService = Object.assign(
           {
             value: 'BBBBBB'
@@ -95,7 +95,7 @@ describe('Service Tests', () => {
         expect(expectedResult).toContainEqual(expected);
       });
 
-      it('should delete a Propriedade_caracteristica', async () => {
+      it('should delete a PropriedadeCaracteristica', async () => {
         const rxPromise = service.delete(123).subscribe(resp => (expectedResult = resp.ok));
 
         const req = httpMock.expectOne({ method: 'DELETE' });

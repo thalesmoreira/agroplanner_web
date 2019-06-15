@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { IPropriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { IPropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
 
 @Component({
   selector: 'jhi-propriedade-caracteristica-detail',
   templateUrl: './propriedade-caracteristica-detail.component.html'
 })
-export class Propriedade_caracteristicaDetailComponent implements OnInit {
-  propriedade_caracteristica: IPropriedade_caracteristica;
+export class PropriedadeCaracteristicaDetailComponent implements OnInit {
+  propriedade_caracteristica: IPropriedadeCaracteristica;
 
   constructor(protected activatedRoute: ActivatedRoute) {}
 

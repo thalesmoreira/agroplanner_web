@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.Objects;
 
 /**
- * A DTO for the {@link br.com.agroplanner.domain.Propriedade_caracteristica} entity.
+ * A DTO for the {@link br.com.agroplanner.domain.PropriedadeCaracteristica} entity.
  */
-public class Propriedade_caracteristicaDTO implements Serializable {
+public class PropriedadeCaracteristicaDTO implements Serializable {
 
     private Long id;
 
@@ -79,11 +79,11 @@ public class Propriedade_caracteristicaDTO implements Serializable {
             return false;
         }
 
-        Propriedade_caracteristicaDTO propriedade_caracteristicaDTO = (Propriedade_caracteristicaDTO) o;
-        if (propriedade_caracteristicaDTO.getId() == null || getId() == null) {
+        PropriedadeCaracteristicaDTO propriedadeCaracteristicaDTO = (PropriedadeCaracteristicaDTO) o;
+        if (propriedadeCaracteristicaDTO.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(getId(), propriedade_caracteristicaDTO.getId());
+        return Objects.equals(getId(), propriedadeCaracteristicaDTO.getId());
     }
 
     @Override

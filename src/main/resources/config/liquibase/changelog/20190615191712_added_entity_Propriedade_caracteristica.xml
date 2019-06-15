@@ -9,7 +9,7 @@
     <property name="autoIncrement" value="true"/>
 
     <!--
-        Added the entity Propriedade_caracteristica.
+        Added the entity PropriedadeCaracteristica.
     -->
     <changeSet id="20190615191712-1" author="jhipster">
         <createTable tableName="propriedade_caracteristica">

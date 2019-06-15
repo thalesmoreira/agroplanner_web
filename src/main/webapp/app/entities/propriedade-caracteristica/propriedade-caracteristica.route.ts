@@ -5,34 +5,34 @@ import { JhiPaginationUtil, JhiResolvePagingParams } from 'ng-jhipster';
 import { UserRouteAccessService } from 'app/core';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { Propriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
-import { Propriedade_caracteristicaService } from './propriedade-caracteristica.service';
-import { Propriedade_caracteristicaComponent } from './propriedade-caracteristica.component';
-import { Propriedade_caracteristicaDetailComponent } from './propriedade-caracteristica-detail.component';
-import { Propriedade_caracteristicaUpdateComponent } from './propriedade-caracteristica-update.component';
-import { Propriedade_caracteristicaDeletePopupComponent } from './propriedade-caracteristica-delete-dialog.component';
-import { IPropriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { PropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { PropriedadeCaracteristicaService } from './propriedade-caracteristica.service';
+import { PropriedadeCaracteristicaComponent } from './propriedade-caracteristica.component';
+import { PropriedadeCaracteristicaDetailComponent } from './propriedade-caracteristica-detail.component';
+import { PropriedadeCaracteristicaUpdateComponent } from './propriedade-caracteristica-update.component';
+import { PropriedadeCaracteristicaDeletePopupComponent } from './propriedade-caracteristica-delete-dialog.component';
+import { IPropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
 
 @Injectable({ providedIn: 'root' })
-export class Propriedade_caracteristicaResolve implements Resolve<IPropriedade_caracteristica> {
-  constructor(private service: Propriedade_caracteristicaService) {}
+export class PropriedadeCaracteristicaResolve implements Resolve<IPropriedadeCaracteristica> {
+  constructor(private service: PropriedadeCaracteristicaService) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IPropriedade_caracteristica> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<IPropriedadeCaracteristica> {
     const id = route.params['id'] ? route.params['id'] : null;
     if (id) {
       return this.service.find(id).pipe(
-        filter((response: HttpResponse<Propriedade_caracteristica>) => response.ok),
-        map((propriedade_caracteristica: HttpResponse<Propriedade_caracteristica>) => propriedade_caracteristica.body)
+        filter((response: HttpResponse<PropriedadeCaracteristica>) => response.ok),
+        map((propriedade_caracteristica: HttpResponse<PropriedadeCaracteristica>) => propriedade_caracteristica.body)
       );
     }
-    return of(new Propriedade_caracteristica());
+    return of(new PropriedadeCaracteristica());
   }
 }
 
 export const propriedade_caracteristicaRoute: Routes = [
   {
     path: '',
-    component: Propriedade_caracteristicaComponent,
+    component: PropriedadeCaracteristicaComponent,
     resolve: {
       pagingParams: JhiResolvePagingParams
     },
@@ -45,9 +45,9 @@ export const propriedade_caracteristicaRoute: Routes = [
   },
   {
     path: ':id/view',
-    component: Propriedade_caracteristicaDetailComponent,
+    component: PropriedadeCaracteristicaDetailComponent,
     resolve: {
-      propriedade_caracteristica: Propriedade_caracteristicaResolve
+      propriedade_caracteristica: PropriedadeCaracteristicaResolve
     },
     data: {
       authorities: ['ROLE_USER'],
@@ -57,9 +57,9 @@ export const propriedade_caracteristicaRoute: Routes = [
   },
   {
     path: 'new',
-    component: Propriedade_caracteristicaUpdateComponent,
+    component: PropriedadeCaracteristicaUpdateComponent,
     resolve: {
-      propriedade_caracteristica: Propriedade_caracteristicaResolve
+      propriedade_caracteristica: PropriedadeCaracteristicaResolve
     },
     data: {
       authorities: ['ROLE_USER'],
@@ -69,9 +69,9 @@ export const propriedade_caracteristicaRoute: Routes = [
   },
   {
     path: ':id/edit',
-    component: Propriedade_caracteristicaUpdateComponent,
+    component: PropriedadeCaracteristicaUpdateComponent,
     resolve: {
-      propriedade_caracteristica: Propriedade_caracteristicaResolve
+      propriedade_caracteristica: PropriedadeCaracteristicaResolve
     },
     data: {
       authorities: ['ROLE_USER'],
@@ -84,9 +84,9 @@ export const propriedade_caracteristicaRoute: Routes = [
 export const propriedade_caracteristicaPopupRoute: Routes = [
   {
     path: ':id/delete',
-    component: Propriedade_caracteristicaDeletePopupComponent,
+    component: PropriedadeCaracteristicaDeletePopupComponent,
     resolve: {
-      propriedade_caracteristica: Propriedade_caracteristicaResolve
+      propriedade_caracteristica: PropriedadeCaracteristicaResolve
     },
     data: {
       authorities: ['ROLE_USER'],

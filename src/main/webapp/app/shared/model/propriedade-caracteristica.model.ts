@@ -1,4 +1,4 @@
-export interface IPropriedade_caracteristica {
+export interface IPropriedadeCaracteristica {
   id?: number;
   value?: string;
   propriedadeNome?: string;
@@ -7,7 +7,7 @@ export interface IPropriedade_caracteristica {
   caracteristicaId?: number;
 }
 
-export class Propriedade_caracteristica implements IPropriedade_caracteristica {
+export class PropriedadeCaracteristica implements IPropriedadeCaracteristica {
   constructor(
     public id?: number,
     public value?: string,

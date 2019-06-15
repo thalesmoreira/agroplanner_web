@@ -12,15 +12,15 @@ import io.github.jhipster.service.filter.LongFilter;
 import io.github.jhipster.service.filter.StringFilter;
 
 /**
- * Criteria class for the {@link br.com.agroplanner.domain.Propriedade_caracteristica} entity. This class is used
- * in {@link br.com.agroplanner.web.rest.Propriedade_caracteristicaResource} to receive all the possible filtering options from
+ * Criteria class for the {@link br.com.agroplanner.domain.PropriedadeCaracteristica} entity. This class is used
+ * in {@link br.com.agroplanner.web.rest.PropriedadeCaracteristicaResource} to receive all the possible filtering options from
  * the Http GET request parameters.
  * For example the following could be a valid request:
  * {@code /propriedade-caracteristicas?id.greaterThan=5&attr1.contains=something&attr2.specified=false}
  * As Spring is unable to properly convert the types, unless specific {@link Filter} class are used, we need to use
  * fix type specific filters.
  */
-public class Propriedade_caracteristicaCriteria implements Serializable, Criteria {
+public class PropriedadeCaracteristicaCriteria implements Serializable, Criteria {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,10 +32,10 @@ public class Propriedade_caracteristicaCriteria implements Serializable, Criteri
 
     private LongFilter caracteristicaId;
 
-    public Propriedade_caracteristicaCriteria(){
+    public PropriedadeCaracteristicaCriteria(){
     }
 
-    public Propriedade_caracteristicaCriteria(Propriedade_caracteristicaCriteria other){
+    public PropriedadeCaracteristicaCriteria(PropriedadeCaracteristicaCriteria other){
         this.id = other.id == null ? null : other.id.copy();
         this.value = other.value == null ? null : other.value.copy();
         this.propriedadeId = other.propriedadeId == null ? null : other.propriedadeId.copy();
@@ -43,8 +43,8 @@ public class Propriedade_caracteristicaCriteria implements Serializable, Criteri
     }
 
     @Override
-    public Propriedade_caracteristicaCriteria copy() {
-        return new Propriedade_caracteristicaCriteria(this);
+    public PropriedadeCaracteristicaCriteria copy() {
+        return new PropriedadeCaracteristicaCriteria(this);
     }
 
     public LongFilter getId() {
@@ -88,7 +88,7 @@ public class Propriedade_caracteristicaCriteria implements Serializable, Criteri
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        final Propriedade_caracteristicaCriteria that = (Propriedade_caracteristicaCriteria) o;
+        final PropriedadeCaracteristicaCriteria that = (PropriedadeCaracteristicaCriteria) o;
         return
             Objects.equals(id, that.id) &&
             Objects.equals(value, that.value) &&

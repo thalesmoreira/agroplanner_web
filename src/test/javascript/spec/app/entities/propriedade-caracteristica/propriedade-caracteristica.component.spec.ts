@@ -5,20 +5,20 @@ import { HttpHeaders, HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Data } from '@angular/router';
 
 import { AgroplannerTestModule } from '../../../test.module';
-import { Propriedade_caracteristicaComponent } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.component';
-import { Propriedade_caracteristicaService } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.service';
-import { Propriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { PropriedadeCaracteristicaComponent } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.component';
+import { PropriedadeCaracteristicaService } from 'app/entities/propriedade-caracteristica/propriedade-caracteristica.service';
+import { PropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
 
 describe('Component Tests', () => {
-  describe('Propriedade_caracteristica Management Component', () => {
-    let comp: Propriedade_caracteristicaComponent;
-    let fixture: ComponentFixture<Propriedade_caracteristicaComponent>;
-    let service: Propriedade_caracteristicaService;
+  describe('PropriedadeCaracteristica Management Component', () => {
+    let comp: PropriedadeCaracteristicaComponent;
+    let fixture: ComponentFixture<PropriedadeCaracteristicaComponent>;
+    let service: PropriedadeCaracteristicaService;
 
     beforeEach(() => {
       TestBed.configureTestingModule({
         imports: [AgroplannerTestModule],
-        declarations: [Propriedade_caracteristicaComponent],
+        declarations: [PropriedadeCaracteristicaComponent],
         providers: [
           {
             provide: ActivatedRoute,
@@ -37,12 +37,12 @@ describe('Component Tests', () => {
           }
         ]
       })
-        .overrideTemplate(Propriedade_caracteristicaComponent, '')
+        .overrideTemplate(PropriedadeCaracteristicaComponent, '')
         .compileComponents();
 
-      fixture = TestBed.createComponent(Propriedade_caracteristicaComponent);
+      fixture = TestBed.createComponent(PropriedadeCaracteristicaComponent);
       comp = fixture.componentInstance;
-      service = fixture.debugElement.injector.get(Propriedade_caracteristicaService);
+      service = fixture.debugElement.injector.get(PropriedadeCaracteristicaService);
     });
 
     it('Should call load all on init', () => {
@@ -51,7 +51,7 @@ describe('Component Tests', () => {
       spyOn(service, 'query').and.returnValue(
         of(
           new HttpResponse({
-            body: [new Propriedade_caracteristica(123)],
+            body: [new PropriedadeCaracteristica(123)],
             headers
           })
         )
@@ -71,7 +71,7 @@ describe('Component Tests', () => {
       spyOn(service, 'query').and.returnValue(
         of(
           new HttpResponse({
-            body: [new Propriedade_caracteristica(123)],
+            body: [new PropriedadeCaracteristica(123)],
             headers
           })
         )
@@ -101,7 +101,7 @@ describe('Component Tests', () => {
       spyOn(service, 'query').and.returnValue(
         of(
           new HttpResponse({
-            body: [new Propriedade_caracteristica(123)],
+            body: [new PropriedadeCaracteristica(123)],
             headers
           })
         )

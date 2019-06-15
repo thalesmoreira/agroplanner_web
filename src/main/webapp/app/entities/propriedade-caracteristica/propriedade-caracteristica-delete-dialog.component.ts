@@ -4,18 +4,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgbActiveModal, NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { IPropriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
-import { Propriedade_caracteristicaService } from './propriedade-caracteristica.service';
+import { IPropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { PropriedadeCaracteristicaService } from './propriedade-caracteristica.service';
 
 @Component({
   selector: 'jhi-propriedade-caracteristica-delete-dialog',
   templateUrl: './propriedade-caracteristica-delete-dialog.component.html'
 })
-export class Propriedade_caracteristicaDeleteDialogComponent {
-  propriedade_caracteristica: IPropriedade_caracteristica;
+export class PropriedadeCaracteristicaDeleteDialogComponent {
+  propriedade_caracteristica: IPropriedadeCaracteristica;
 
   constructor(
-    protected propriedade_caracteristicaService: Propriedade_caracteristicaService,
+    protected propriedadeCaracteristicaService: PropriedadeCaracteristicaService,
     public activeModal: NgbActiveModal,
     protected eventManager: JhiEventManager
   ) {}
@@ -25,7 +25,7 @@ export class Propriedade_caracteristicaDeleteDialogComponent {
   }
 
   confirmDelete(id: number) {
-    this.propriedade_caracteristicaService.delete(id).subscribe(response => {
+    this.propriedadeCaracteristicaService.delete(id).subscribe(response => {
       this.eventManager.broadcast({
         name: 'propriedade_caracteristicaListModification',
         content: 'Deleted an propriedade_caracteristica'
@@ -39,7 +39,7 @@ export class Propriedade_caracteristicaDeleteDialogComponent {
   selector: 'jhi-propriedade-caracteristica-delete-popup',
   template: ''
 })
-export class Propriedade_caracteristicaDeletePopupComponent implements OnInit, OnDestroy {
+export class PropriedadeCaracteristicaDeletePopupComponent implements OnInit, OnDestroy {
   protected ngbModalRef: NgbModalRef;
 
   constructor(protected activatedRoute: ActivatedRoute, protected router: Router, protected modalService: NgbModal) {}
@@ -47,7 +47,7 @@ export class Propriedade_caracteristicaDeletePopupComponent implements OnInit, O
   ngOnInit() {
     this.activatedRoute.data.subscribe(({ propriedade_caracteristica }) => {
       setTimeout(() => {
-        this.ngbModalRef = this.modalService.open(Propriedade_caracteristicaDeleteDialogComponent as Component, {
+        this.ngbModalRef = this.modalService.open(PropriedadeCaracteristicaDeleteDialogComponent as Component, {
           size: 'lg',
           backdrop: 'static'
         });

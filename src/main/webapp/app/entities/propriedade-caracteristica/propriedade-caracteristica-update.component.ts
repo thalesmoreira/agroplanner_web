@@ -5,8 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { JhiAlertService } from 'ng-jhipster';
-import { IPropriedade_caracteristica, Propriedade_caracteristica } from 'app/shared/model/propriedade-caracteristica.model';
-import { Propriedade_caracteristicaService } from './propriedade-caracteristica.service';
+import { IPropriedadeCaracteristica, PropriedadeCaracteristica } from 'app/shared/model/propriedade-caracteristica.model';
+import { PropriedadeCaracteristicaService } from './propriedade-caracteristica.service';
 import { IPropriedade } from 'app/shared/model/propriedade.model';
 import { PropriedadeService } from 'app/entities/propriedade';
 import { ICaracteristica } from 'app/shared/model/caracteristica.model';
@@ -16,7 +16,7 @@ import { CaracteristicaService } from 'app/entities/caracteristica';
   selector: 'jhi-propriedade-caracteristica-update',
   templateUrl: './propriedade-caracteristica-update.component.html'
 })
-export class Propriedade_caracteristicaUpdateComponent implements OnInit {
+export class PropriedadeCaracteristicaUpdateComponent implements OnInit {
   isSaving: boolean;
 
   propriedades: IPropriedade[];
@@ -32,7 +32,7 @@ export class Propriedade_caracteristicaUpdateComponent implements OnInit {
 
   constructor(
     protected jhiAlertService: JhiAlertService,
-    protected propriedade_caracteristicaService: Propriedade_caracteristicaService,
+    protected propriedadeCaracteristicaService: PropriedadeCaracteristicaService,
     protected propriedadeService: PropriedadeService,
     protected caracteristicaService: CaracteristicaService,
     protected activatedRoute: ActivatedRoute,
@@ -60,7 +60,7 @@ export class Propriedade_caracteristicaUpdateComponent implements OnInit {
       .subscribe((res: ICaracteristica[]) => (this.caracteristicas = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
-  updateForm(propriedade_caracteristica: IPropriedade_caracteristica) {
+  updateForm(propriedade_caracteristica: IPropriedadeCaracteristica) {
     this.editForm.patchValue({
       id: propriedade_caracteristica.id,
       value: propriedade_caracteristica.value,
@@ -77,15 +77,15 @@ export class Propriedade_caracteristicaUpdateComponent implements OnInit {
     this.isSaving = true;
     const propriedade_caracteristica = this.createFromForm();
     if (propriedade_caracteristica.id !== undefined) {
-      this.subscribeToSaveResponse(this.propriedade_caracteristicaService.update(propriedade_caracteristica));
+      this.subscribeToSaveResponse(this.propriedadeCaracteristicaService.update(propriedade_caracteristica));
     } else {
-      this.subscribeToSaveResponse(this.propriedade_caracteristicaService.create(propriedade_caracteristica));
+      this.subscribeToSaveResponse(this.propriedadeCaracteristicaService.create(propriedade_caracteristica));
     }
   }
 
-  private createFromForm(): IPropriedade_caracteristica {
+  private createFromForm(): IPropriedadeCaracteristica {
     const entity = {
-      ...new Propriedade_caracteristica(),
+      ...new PropriedadeCaracteristica(),
       id: this.editForm.get(['id']).value,
       value: this.editForm.get(['value']).value,
       propriedadeId: this.editForm.get(['propriedadeId']).value,
@@ -94,9 +94,9 @@ export class Propriedade_caracteristicaUpdateComponent implements OnInit {
     return entity;
   }
 
-  protected subscribeToSaveResponse(result: Observable<HttpResponse<IPropriedade_caracteristica>>) {
+  protected subscribeToSaveResponse(result: Observable<HttpResponse<IPropriedadeCaracteristica>>) {
     result.subscribe(
-      (res: HttpResponse<IPropriedade_caracteristica>) => this.onSaveSuccess(),
+      (res: HttpResponse<IPropriedadeCaracteristica>) => this.onSaveSuccess(),
       (res: HttpErrorResponse) => this.onSaveError()
     );
   }

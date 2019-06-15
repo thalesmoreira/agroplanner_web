@@ -9,12 +9,12 @@ import javax.validation.constraints.*;
 import java.io.Serializable;
 
 /**
- * A Propriedade_caracteristica.
+ * A PropriedadeCaracteristica.
  */
 @Entity
 @Table(name = "propriedade_caracteristica")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class Propriedade_caracteristica implements Serializable {
+public class PropriedadeCaracteristica implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -47,7 +47,7 @@ public class Propriedade_caracteristica implements Serializable {
         return value;
     }
 
-    public Propriedade_caracteristica value(String value) {
+    public PropriedadeCaracteristica value(String value) {
         this.value = value;
         return this;
     }
@@ -60,7 +60,7 @@ public class Propriedade_caracteristica implements Serializable {
         return propriedade;
     }
 
-    public Propriedade_caracteristica propriedade(Propriedade propriedade) {
+    public PropriedadeCaracteristica propriedade(Propriedade propriedade) {
         this.propriedade = propriedade;
         return this;
     }
@@ -73,7 +73,7 @@ public class Propriedade_caracteristica implements Serializable {
         return caracteristica;
     }
 
-    public Propriedade_caracteristica caracteristica(Caracteristica caracteristica) {
+    public PropriedadeCaracteristica caracteristica(Caracteristica caracteristica) {
         this.caracteristica = caracteristica;
         return this;
     }
@@ -88,10 +88,10 @@ public class Propriedade_caracteristica implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Propriedade_caracteristica)) {
+        if (!(o instanceof PropriedadeCaracteristica)) {
             return false;
         }
-        return id != null && id.equals(((Propriedade_caracteristica) o).id);
+        return id != null && id.equals(((PropriedadeCaracteristica) o).id);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class Propriedade_caracteristica implements Serializable {
 
     @Override
     public String toString() {
-        return "Propriedade_caracteristica{" +
+        return "PropriedadeCaracteristica{" +
             "id=" + getId() +
             ", value='" + getValue() + "'" +
             "}";
