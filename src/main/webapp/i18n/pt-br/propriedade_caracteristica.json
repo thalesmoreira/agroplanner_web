@@ -1,0 +1,24 @@
+{
+  "agroplannerApp": {
+    "propriedade_caracteristica": {
+      "home": {
+        "title": "Propriedade Caracteristicas",
+        "createLabel": "Criar novo Propriedade Caracteristica",
+        "createOrEditLabel": "Criar ou editar Propriedade Caracteristica",
+        "notFound": "No Propriedade Caracteristica found"
+      },
+      "created": "Um novo Propriedade Caracteristica foi criado com o identificador {{ param }}",
+      "updated": "Um Propriedade Caracteristica foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Propriedade Caracteristica foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Propriedade Caracteristica {{ id }}?"
+      },
+      "detail": {
+        "title": "Propriedade Caracteristica"
+      },
+      "value": "Value",
+      "propriedade": "Propriedade",
+      "caracteristica": "Caracteristica"
+    }
+  }
+}
