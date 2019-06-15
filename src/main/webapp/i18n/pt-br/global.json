@@ -10,6 +10,7 @@
         "caracteristica": "Caracteristica",
         "propriedade": "Propriedade",
         "propriedadeCaracteristica": "Propriedade Caracteristica",
+        "propriedadeFoto": "Propriedade Foto",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

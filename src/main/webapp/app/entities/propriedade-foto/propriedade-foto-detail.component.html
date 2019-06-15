@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="propriedadeFoto">
+            <h2><span jhiTranslate="agroplannerApp.propriedadeFoto.detail.title">Propriedade Foto</span> {{propriedadeFoto.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="agroplannerApp.propriedadeFoto.foto">Foto</span></dt>
+                <dd>
+                    <div *ngIf="propriedadeFoto.foto">
+                        <a (click)="openFile(propriedadeFoto.fotoContentType, propriedadeFoto.foto)">
+                            <img [src]="'data:' + propriedadeFoto.fotoContentType + ';base64,' + propriedadeFoto.foto" style="max-width: 100%;" alt="propriedadeFoto image"/>
+                        </a>
+                        {{propriedadeFoto.fotoContentType}}, {{byteSize(propriedadeFoto.foto)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="agroplannerApp.propriedadeFoto.propriedade">Propriedade</span></dt>
+                <dd>
+                    <div *ngIf="propriedadeFoto.propriedadeId">
+                        <a [routerLink]="['/propriedade', propriedadeFoto.propriedadeId, 'view']">{{propriedadeFoto.propriedadeNome}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/propriedade-foto', propriedadeFoto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+  "agroplannerApp": {
+    "propriedadeFoto": {
+      "home": {
+        "title": "Propriedade Fotos",
+        "createLabel": "Criar novo Propriedade Foto",
+        "createOrEditLabel": "Criar ou editar Propriedade Foto",
+        "notFound": "No Propriedade Foto found"
+      },
+      "created": "Um novo Propriedade Foto foi criado com o identificador {{ param }}",
+      "updated": "Um Propriedade Foto foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Propriedade Foto foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Propriedade Foto {{ id }}?"
+      },
+      "detail": {
+        "title": "Propriedade Foto"
+      },
+      "foto": "Foto",
+      "propriedade": "Propriedade"
+    }
+  }
+}

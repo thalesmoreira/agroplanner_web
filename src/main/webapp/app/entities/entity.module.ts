@@ -14,7 +14,11 @@ import { RouterModule } from '@angular/router';
       },
       {
         path: 'propriedade-caracteristica',
-        loadChildren: './propriedade-caracteristica/propriedade-caracteristica.module#AgroplannerPropriedade_caracteristicaModule'
+        loadChildren: './propriedade-caracteristica/propriedade-caracteristica.module#AgroplannerPropriedadeCaracteristicaModule'
+      },
+      {
+        path: 'propriedade-foto',
+        loadChildren: './propriedade-foto/propriedade-foto.module#AgroplannerPropriedadeFotoModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])
