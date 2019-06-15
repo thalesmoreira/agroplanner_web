@@ -7,6 +7,10 @@ import { RouterModule } from '@angular/router';
       {
         path: 'caracteristica',
         loadChildren: './caracteristica/caracteristica.module#AgroplannerCaracteristicaModule'
+      },
+      {
+        path: 'propriedade',
+        loadChildren: './propriedade/propriedade.module#AgroplannerPropriedadeModule'
       }
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ])

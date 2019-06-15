@@ -1,0 +1,26 @@
+{
+  "agroplannerApp": {
+    "propriedade": {
+      "home": {
+        "title": "Propriedades",
+        "createLabel": "Criar novo Propriedade",
+        "createOrEditLabel": "Criar ou editar Propriedade",
+        "notFound": "No Propriedade found"
+      },
+      "created": "Um novo Propriedade foi criado com o identificador {{ param }}",
+      "updated": "Um Propriedade foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Propriedade foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Propriedade {{ id }}?"
+      },
+      "detail": {
+        "title": "Propriedade"
+      },
+      "nome": "Nome",
+      "descricao": "Descricao",
+      "localidade": "Localidade",
+      "georeferenciamento": "Georeferenciamento",
+      "user": "User"
+    }
+  }
+}
