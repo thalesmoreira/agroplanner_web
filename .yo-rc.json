@@ -1,0 +1,44 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "br.com.agroplanner",
+      "nativeLanguage": "pt-br"
+    },
+    "jhipsterVersion": "6.1.0",
+    "applicationType": "monolith",
+    "baseName": "agroplanner",
+    "packageName": "br.com.agroplanner",
+    "packageFolder": "br/com/agroplanner",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MGRlOTY2NTkxNzU2NGYyMjA0MGEzMWM5MTdlMGQ3YTQzYzNlZGY3NTg5MmJhOWI3NzczYzI1NTZlZGZhNDk0YThmYjJlOGU4N2VmOTY1ZmE5NDg2OThjMjI2MTE3YzgxNTRiY2MyMmQwZGRkOThmZWJkZmY2ZTdiMjM5ZTBiNGQ=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "pt-br",
+    "languages": [
+      "pt-br"
+    ],
+    "herokuAppName": "agroplannerweb",
+    "herokuDeployType": "jar"
+  }
+}
