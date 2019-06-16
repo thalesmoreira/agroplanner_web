@@ -1,0 +1,87 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="agroplannerApp.propriedadeContratada.home.title">Propriedade Contratadas</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-propriedade-contratada" [routerLink]="['/propriedade-contratada/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="agroplannerApp.propriedadeContratada.home.createLabel">
+            Create new Propriedade Contratada
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="propriedadeContratadas?.length === 0">
+        <span jhiTranslate="agroplannerApp.propriedadeContratada.home.notFound">No propriedadeContratadas found</span>
+    </div>
+    <div class="table-responsive" *ngIf="propriedadeContratadas?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataInicial"><span jhiTranslate="agroplannerApp.propriedadeContratada.dataInicial">Data Inicial</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="dataFinal"><span jhiTranslate="agroplannerApp.propriedadeContratada.dataFinal">Data Final</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="quantidadeCabecas"><span jhiTranslate="agroplannerApp.propriedadeContratada.quantidadeCabecas">Quantidade Cabecas</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valorContratado"><span jhiTranslate="agroplannerApp.propriedadeContratada.valorContratado">Valor Contratado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="formaPagamento"><span jhiTranslate="agroplannerApp.propriedadeContratada.formaPagamento">Forma Pagamento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="parcelas"><span jhiTranslate="agroplannerApp.propriedadeContratada.parcelas">Parcelas</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valorParcela"><span jhiTranslate="agroplannerApp.propriedadeContratada.valorParcela">Valor Parcela</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="propriedadeNome"><span jhiTranslate="agroplannerApp.propriedadeContratada.propriedade">Propriedade</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="userLogin"><span jhiTranslate="agroplannerApp.propriedadeContratada.user">User</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let propriedadeContratada of propriedadeContratadas ;trackBy: trackId">
+                <td><a [routerLink]="['/propriedade-contratada', propriedadeContratada.id, 'view' ]">{{propriedadeContratada.id}}</a></td>
+                <td>{{propriedadeContratada.dataInicial | date:'medium'}}</td>
+                <td>{{propriedadeContratada.dataFinal | date:'medium'}}</td>
+                <td>{{propriedadeContratada.quantidadeCabecas}}</td>
+                <td>{{propriedadeContratada.valorContratado}}</td>
+                <td jhiTranslate="{{'agroplannerApp.FormaDePagamento.' + propriedadeContratada.formaPagamento}}">{{propriedadeContratada.formaPagamento}}</td>
+                <td>{{propriedadeContratada.parcelas}}</td>
+                <td>{{propriedadeContratada.valorParcela}}</td>
+                <td>
+                    <div *ngIf="propriedadeContratada.propriedadeId">
+                        <a [routerLink]="['../propriedade', propriedadeContratada.propriedadeId , 'view' ]" >{{propriedadeContratada.propriedadeNome}}</a>
+                    </div>
+                </td>
+                <td>
+                    {{propriedadeContratada.userLogin}}
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/propriedade-contratada', propriedadeContratada.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/propriedade-contratada', propriedadeContratada.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'propriedade-contratada', { outlets: { popup: propriedadeContratada.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="propriedadeContratadas?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "agroplannerApp": {
+    "propriedadeContratada": {
+      "home": {
+        "title": "Propriedade Contratadas",
+        "createLabel": "Criar novo Propriedade Contratada",
+        "createOrEditLabel": "Criar ou editar Propriedade Contratada",
+        "notFound": "No Propriedade Contratada found"
+      },
+      "created": "Um novo Propriedade Contratada foi criado com o identificador {{ param }}",
+      "updated": "Um Propriedade Contratada foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Propriedade Contratada foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Propriedade Contratada {{ id }}?"
+      },
+      "detail": {
+        "title": "Propriedade Contratada"
+      },
+      "dataInicial": "Data Inicial",
+      "dataFinal": "Data Final",
+      "quantidadeCabecas": "Quantidade Cabecas",
+      "valorContratado": "Valor Contratado",
+      "formaPagamento": "Forma Pagamento",
+      "parcelas": "Parcelas",
+      "valorParcela": "Valor Parcela",
+      "propriedade": "Propriedade",
+      "user": "User"
+    }
+  }
+}

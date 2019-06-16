@@ -11,6 +11,7 @@
         "propriedade": "Propriedade",
         "propriedadeCaracteristica": "Propriedade Caracteristica",
         "propriedadeFoto": "Propriedade Foto",
+        "propriedadeContratada": "Propriedade Contratada",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

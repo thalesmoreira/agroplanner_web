@@ -50,57 +50,58 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
         chunkFilename: 'app/[id].chunk.js'
     },
     module: {
-        rules: [{
-            test: /\.ts$/,
-            enforce: 'pre',
-            loader: 'tslint-loader',
-            exclude: [/(node_modules)/, new RegExp('reflect-metadata\\' + path.sep + 'Reflect\\.ts')]
-        },
-        {
-            test: /\.ts$/,
-            use: [
-                'angular2-template-loader',
-                {
-                    loader: 'cache-loader',
-                    options: {
-                      cacheDirectory: path.resolve('build/cache-loader')
-                    }
-                },
-                {
-                    loader: 'thread-loader',
-                    options: {
-                        // There should be 1 cpu for the fork-ts-checker-webpack-plugin.
-                        // The value may need to be adjusted (e.g. to 1) in some CI environments,
-                        // as cpus() may report more cores than what are available to the build.
-                        workers: require('os').cpus().length - 1
-                    }
-                },
-                {
-                    loader: 'ts-loader',
-                    options: {
-                        transpileOnly: true,
-                        happyPackMode: true
-                    }
-                },
-                'angular-router-loader'
-            ],
-            exclude: /(node_modules)/
-        },
-        {
-            test: /\.scss$/,
-            use: ['to-string-loader', 'css-loader', {
-                loader: 'sass-loader',
-                options: { implementation: sass }
-            }],
-            exclude: /(vendor\.scss|global\.scss)/
-        },
-        {
-            test: /(vendor\.scss|global\.scss)/,
-            use: ['style-loader', 'css-loader', 'postcss-loader', {
-                loader: 'sass-loader',
-                options: { implementation: sass }
+        rules: [
+            {
+                test: /\.ts$/,
+                enforce: 'pre',
+                loader: 'tslint-loader',
+                exclude: [/(node_modules)/, new RegExp('reflect-metadata\\' + path.sep + 'Reflect\\.ts')]
+            },
+            {
+                test: /\.ts$/,
+                use: [
+                    'angular2-template-loader',
+                    {
+                        loader: 'cache-loader',
+                        options: {
+                            cacheDirectory: path.resolve('build/cache-loader')
+                        }
+                    },
+                    {
+                        loader: 'thread-loader',
+                        options: {
+                            // There should be 1 cpu for the fork-ts-checker-webpack-plugin.
+                            // The value may need to be adjusted (e.g. to 1) in some CI environments,
+                            // as cpus() may report more cores than what are available to the build.
+                            workers: require('os').cpus().length - 1
+                        }
+                    },
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            transpileOnly: true,
+                            happyPackMode: true
+                        }
+                    },
+                    'angular-router-loader'
+                ],
+                exclude: /(node_modules)/
+            },
+            {
+                test: /\.scss$/,
+                use: ['to-string-loader', 'css-loader', {
+                    loader: 'sass-loader',
+                    options: { implementation: sass }
+                }],
+                exclude: /(vendor\.scss|global\.scss)/
+            },
+            {
+                test: /(vendor\.scss|global\.scss)/,
+                use: ['style-loader', 'css-loader', 'postcss-loader', {
+                    loader: 'sass-loader',
+                    options: { implementation: sass }
+                }]
             }]
-        }]
     },
     stats: process.env.JHI_DISABLE_WEBPACK_LOGS ? 'none' : options.stats,
     plugins: [
@@ -108,7 +109,7 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
             ? null
             : new SimpleProgressWebpackPlugin({
                 format: options.stats === 'minimal' ? 'compact' : 'expanded'
-              }),
+            }),
         new FriendlyErrorsWebpackPlugin(),
         new ForkTsCheckerWebpackPlugin(),
         new BrowserSyncPlugin({
@@ -127,8 +128,8 @@ module.exports = (options) => webpackMerge(commonConfig({ env: ENV }), {
                 }
             }
         }, {
-            reload: false
-        }),
+                reload: false
+            }),
         new webpack.ContextReplacementPlugin(
             /angular(\\|\/)core(\\|\/)/,
             path.resolve(__dirname, './src/main/webapp/')

@@ -30,53 +30,54 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         chunkFilename: 'app/[id].[hash].chunk.js'
     },
     module: {
-        rules: [{
-            test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
-            loader: '@ngtools/webpack'
-        },
-        {
-            test: /\.scss$/,
-            use: ['to-string-loader', 'css-loader', {
-                loader: 'sass-loader',
-                options: { implementation: sass }
-            }],
-            exclude: /(vendor\.scss|global\.scss)/
-        },
-        {
-            test: /(vendor\.scss|global\.scss)/,
-            use: [
-                {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                        publicPath: '../'
-                    }
-                },
-                'css-loader',
-                'postcss-loader',
-                {
+        rules: [
+            {
+                test: /(?:\.ngfactory\.js|\.ngstyle\.js|\.ts)$/,
+                loader: '@ngtools/webpack'
+            },
+            {
+                test: /\.scss$/,
+                use: ['to-string-loader', 'css-loader', {
                     loader: 'sass-loader',
                     options: { implementation: sass }
-                }
-            ]
-        },
-        {
-            test: /\.css$/,
-            use: ['to-string-loader', 'css-loader'],
-            exclude: /(vendor\.css|global\.css)/
-        },
-        {
-            test: /(vendor\.css|global\.css)/,
-            use: [
-                {
-                    loader: MiniCssExtractPlugin.loader,
-                    options: {
-                        publicPath: '../'
+                }],
+                exclude: /(vendor\.scss|global\.scss)/
+            },
+            {
+                test: /(vendor\.scss|global\.scss)/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../'
+                        }
+                    },
+                    'css-loader',
+                    'postcss-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: { implementation: sass }
                     }
-                },
-                'css-loader',
-                'postcss-loader'
-            ]
-        }]
+                ]
+            },
+            {
+                test: /\.css$/,
+                use: ['to-string-loader', 'css-loader'],
+                exclude: /(vendor\.css|global\.css)/
+            },
+            {
+                test: /(vendor\.css|global\.css)/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: '../'
+                        }
+                    },
+                    'css-loader',
+                    'postcss-loader'
+                ]
+            }]
     },
     optimization: {
         runtimeChunk: false,
@@ -131,9 +132,9 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         }),
         new MomentLocalesPlugin({
             localesToKeep: [
-                    'pt-br'
-                    // jhipster-needle-i18n-language-moment-webpack - JHipster will add/remove languages in this array
-                ]
+                'pt-br'
+                // jhipster-needle-i18n-language-moment-webpack - JHipster will add/remove languages in this array
+            ]
         }),
         new Visualizer({
             // Webpack statistics in target folder
@@ -149,8 +150,8 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
             debug: false
         }),
         new WorkboxPlugin.GenerateSW({
-          clientsClaim: true,
-          skipWaiting: true,
+            clientsClaim: true,
+            skipWaiting: true,
         })
     ],
     mode: 'production'

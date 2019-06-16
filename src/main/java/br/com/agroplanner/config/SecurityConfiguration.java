@@ -65,7 +65,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .accessDeniedHandler(problemSupport)
         .and()
             .headers()
-            .contentSecurityPolicy("img-src 'self'; default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'")
+            .contentSecurityPolicy("''")
         .and()
             .referrerPolicy(ReferrerPolicyHeaderWriter.ReferrerPolicy.STRICT_ORIGIN_WHEN_CROSS_ORIGIN)
         .and()
@@ -83,6 +83,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/activate").permitAll()
             .antMatchers("/api/account/reset-password/init").permitAll()
             .antMatchers("/api/account/reset-password/finish").permitAll()
+            .antMatchers("/api/caracteristicas").permitAll()
+            .antMatchers("/api/propriedades").permitAll()
+            .antMatchers("/api/propriedade-caracteristicas").permitAll()
+            .antMatchers("/api/propriedade-fotos").permitAll()
+            .antMatchers("/api/propriedade-contratadas").permitAll()
+
             .antMatchers("/api/**").authenticated()
             .antMatchers("/management/health").permitAll()
             .antMatchers("/management/info").permitAll()
@@ -99,3 +105,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         return new JWTConfigurer(tokenProvider);
     }
 }
+
+// img-src 'self'; default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'

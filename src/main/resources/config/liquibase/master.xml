@@ -18,9 +18,11 @@
     <include file="config/liquibase/changelog/20190615183446_added_entity_Propriedade.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190615191712_added_entity_Propriedade_caracteristica.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190615203549_added_entity_PropriedadeFoto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190616015224_added_entity_PropriedadeContratada.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20190615183446_added_entity_constraints_Propriedade.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190615191712_added_entity_constraints_Propriedade_caracteristica.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190615203549_added_entity_constraints_PropriedadeFoto.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190616015224_added_entity_constraints_PropriedadeContratada.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

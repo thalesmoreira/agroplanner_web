@@ -1,0 +1,10 @@
+{
+  "agroplannerApp": {
+    "FormaDePagamento": {
+      "null": "",
+      "DEBITO": "DEBITO",
+      "CREDITO": "CREDITO",
+      "BOLETO": "BOLETO"
+    }
+  }
+}

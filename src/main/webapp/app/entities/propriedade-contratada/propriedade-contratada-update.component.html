@@ -1,0 +1,156 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-propriedade-contratada-heading" jhiTranslate="agroplannerApp.propriedadeContratada.home.createOrEditLabel">Create or edit a Propriedade Contratada</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="agroplannerApp.propriedadeContratada.dataInicial" for="field_dataInicial">Data Inicial</label>
+                    <div class="d-flex">
+                        <input id="field_dataInicial" type="datetime-local" class="form-control" name="dataInicial" formControlName="dataInicial" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dataInicial').invalid && (editForm.get('dataInicial').dirty || editForm.get('dataInicial').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dataInicial').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dataInicial').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="agroplannerApp.propriedadeContratada.dataFinal" for="field_dataFinal">Data Final</label>
+                    <div class="d-flex">
+                        <input id="field_dataFinal" type="datetime-local" class="form-control" name="dataFinal" formControlName="dataFinal" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('dataFinal').invalid && (editForm.get('dataFinal').dirty || editForm.get('dataFinal').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dataFinal').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('dataFinal').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="agroplannerApp.propriedadeContratada.quantidadeCabecas" for="field_quantidadeCabecas">Quantidade Cabecas</label>
+                    <input type="number" class="form-control" name="quantidadeCabecas" id="field_quantidadeCabecas"
+                           formControlName="quantidadeCabecas"/>
+                    <div *ngIf="editForm.get('quantidadeCabecas').invalid && (editForm.get('quantidadeCabecas').dirty || editForm.get('quantidadeCabecas').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('quantidadeCabecas').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('quantidadeCabecas')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="agroplannerApp.propriedadeContratada.valorContratado" for="field_valorContratado">Valor Contratado</label>
+                    <input type="number" class="form-control" name="valorContratado" id="field_valorContratado"
+                           formControlName="valorContratado"/>
+                    <div *ngIf="editForm.get('valorContratado').invalid && (editForm.get('valorContratado').dirty || editForm.get('valorContratado').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('valorContratado').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('valorContratado')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="agroplannerApp.propriedadeContratada.formaPagamento" for="field_formaPagamento">Forma Pagamento</label>
+                    <select class="form-control" name="formaPagamento" formControlName="formaPagamento" id="field_formaPagamento">
+                        <option value="DEBITO">{{'agroplannerApp.FormaDePagamento.DEBITO' | translate}}</option>
+                        <option value="CREDITO">{{'agroplannerApp.FormaDePagamento.CREDITO' | translate}}</option>
+                        <option value="BOLETO">{{'agroplannerApp.FormaDePagamento.BOLETO' | translate}}</option>
+                    </select>
+                    <div *ngIf="editForm.get('formaPagamento').invalid && (editForm.get('formaPagamento').dirty || editForm.get('formaPagamento').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('formaPagamento').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="agroplannerApp.propriedadeContratada.parcelas" for="field_parcelas">Parcelas</label>
+                    <input type="number" class="form-control" name="parcelas" id="field_parcelas"
+                           formControlName="parcelas"/>
+                    <div *ngIf="editForm.get('parcelas').invalid && (editForm.get('parcelas').dirty || editForm.get('parcelas').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('parcelas').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('parcelas')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="agroplannerApp.propriedadeContratada.valorParcela" for="field_valorParcela">Valor Parcela</label>
+                    <input type="number" class="form-control" name="valorParcela" id="field_valorParcela"
+                           formControlName="valorParcela"/>
+                    <div *ngIf="editForm.get('valorParcela').invalid && (editForm.get('valorParcela').dirty || editForm.get('valorParcela').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('valorParcela').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('valorParcela')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="agroplannerApp.propriedadeContratada.propriedade" for="field_propriedade">Propriedade</label>
+                    <select class="form-control" id="field_propriedade" name="propriedade" formControlName="propriedadeId">
+                        <option *ngIf="!editForm.get('propriedadeId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="propriedadeOption.id" *ngFor="let propriedadeOption of propriedades; trackBy: trackPropriedadeById">{{propriedadeOption.nome}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('propriedadeId').invalid && (editForm.get('propriedadeId').dirty || editForm.get('propriedadeId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('propriedadeId').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="agroplannerApp.propriedadeContratada.user" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="userId">
+                        <option *ngIf="!editForm.get('userId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="userOption.id" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('userId').invalid && (editForm.get('userId').dirty || editForm.get('userId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('userId').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
